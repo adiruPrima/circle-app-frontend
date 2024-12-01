@@ -1,52 +1,26 @@
 import { Box, Button, Flex, Image, Text, VStack } from '@chakra-ui/react';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { dummyUsers, suggestedUsers } from '../../data/dummy';
+import EditProfileModal from '../profile/EditProfileModal';
+import ProfileCard from '../profile/ProfileCard';
 
 const RightSidebar = () => {
   const currentUser = dummyUsers[0];
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
+  const location = useLocation();
+  const isProfilePage = location.pathname === '/profile';
 
   return (
     <Box w="320px" p={4} position="sticky" top={0} h="100vh">
       <VStack spacing={6} align="stretch">
-        {/* Profile Card */}
-        <Box bg="#262626" p={4} borderRadius="lg">
-          <Box
-            position="relative"
-            h="80px"
-            bg="green.400"
-            borderRadius="lg"
-            mb={4}
-          >
-            <Image
-              src={currentUser.avatar}
-              alt={currentUser.name}
-              boxSize="60px"
-              borderRadius="full"
-              position="absolute"
-              bottom="-30px"
-              left="4"
-              border="4px"
-              borderColor="gray.800"
-            />
-          </Box>
-          <Flex justify="flex-end" mb={2}>
-            <Button size="sm" variant="outline" rounded="full">
-              Edit Profile
-            </Button>
-          </Flex>
-          <Text fontSize="xl" fontWeight="bold" color="white">
-            {currentUser.name}
-          </Text>
-          <Text color="gray.400" mb={2}>
-            {currentUser.username}
-          </Text>
-          <Text color="gray.300" mb={4}>
-            {currentUser.bio}
-          </Text>
-          <Flex justify="space-between" alignItems="center" color="gray.400">
-            <Text>{currentUser.following} Following</Text>
-            <Text>{currentUser.followers} Followers</Text>
-          </Flex>
-        </Box>
+        {/* Profile Card - Only show if not on profile page */}
+        {!isProfilePage && (
+          <ProfileCard
+            user={currentUser}
+            onEditProfile={() => setIsEditProfileOpen(true)}
+          />
+        )}
 
         {/* Suggested Users */}
         <Box bg="#262626" p={4} borderRadius="lg">
@@ -81,6 +55,12 @@ const RightSidebar = () => {
           </VStack>
         </Box>
       </VStack>
+
+      <EditProfileModal
+        isOpen={isEditProfileOpen}
+        onClose={() => setIsEditProfileOpen(false)}
+        user={currentUser}
+      />
     </Box>
   );
 };

@@ -1,10 +1,13 @@
 import { Box, Button, Flex, Icon, Text, VStack } from '@chakra-ui/react';
 import { CircleUserRound, Heart, Home, LogOut, Search } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import CreatePostModal from '../posts/CreatePostModal';
 
 const LeftSidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
 
   const navItems = [
     { icon: Home, label: 'Home', path: '/' },
@@ -42,7 +45,12 @@ const LeftSidebar = () => {
           ))}
         </VStack>
 
-        <Button colorScheme="green" size="lg" rounded="full">
+        <Button
+          colorScheme="green"
+          size="lg"
+          rounded="full"
+          onClick={() => setIsCreatePostOpen(true)}
+        >
           Create Post
         </Button>
 
@@ -60,6 +68,11 @@ const LeftSidebar = () => {
           </Flex>
         </Box>
       </VStack>
+
+      <CreatePostModal
+        isOpen={isCreatePostOpen}
+        onClose={() => setIsCreatePostOpen(false)}
+      />
     </Box>
   );
 };

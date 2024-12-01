@@ -11,11 +11,14 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { dummyPosts, dummyUsers } from '../data/dummy';
 import PostCard from '../components/posts/PostCard';
+import EditProfileModal from '../components/profile/EditProfileModal';
 
 const Profile = () => {
   const user = dummyUsers[0];
+  const [isEditProfileOpen, setIsEditProfileOpen] = useState(false);
 
   return (
     <Box>
@@ -43,7 +46,11 @@ const Profile = () => {
 
       <Box px={4} pt={16} pb={4}>
         <Flex justify="flex-end" mb={4}>
-          <Button variant="outline" rounded="full">
+          <Button
+            variant="outline"
+            rounded="full"
+            onClick={() => setIsEditProfileOpen(true)}
+          >
             Edit Profile
           </Button>
         </Flex>
@@ -86,6 +93,12 @@ const Profile = () => {
           </TabPanel>
         </TabPanels>
       </Tabs>
+
+      <EditProfileModal
+        isOpen={isEditProfileOpen}
+        onClose={() => setIsEditProfileOpen(false)}
+        user={user}
+      />
     </Box>
   );
 };
