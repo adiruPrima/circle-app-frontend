@@ -15,7 +15,6 @@ const CreatePostBox = () => {
           alt={currentUser.name}
           boxSize="40px"
           borderRadius="full"
-          objectFit="cover"
         />
         <Flex direction="column" flex="1" gap={3}>
           <Textarea

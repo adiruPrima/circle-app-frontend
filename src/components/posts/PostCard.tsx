@@ -30,7 +30,7 @@ const PostCard = ({ post }: PostCardProps) => {
               borderRadius="lg"
               mb={2}
               maxH="400px"
-              objectFit="cover"
+              objectFit="contain"
               w="full"
             />
           )}

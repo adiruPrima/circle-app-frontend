@@ -25,7 +25,8 @@ export const dummyUsers: User[] = [
     id: '1',
     name: 'Squidward Tentacles',
     username: '@sigmasquid',
-    avatar: 'https://api.dicebear.com/9.x/avataaars-neutral/svg?seed=Squidward',
+    avatar:
+      'https://i.pinimg.com/originals/e4/d9/50/e4d950f1332f136e7f9a21d6e499e949.jpg',
     banner:
       'https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?w=1200',
     bio: 'Art is a lifestyle',
@@ -49,8 +50,9 @@ export const dummyPosts: Post[] = [
   {
     id: '1',
     userId: '1',
-    author: dummyUsers[0],
-    content: 'Berjalan ke Krusty Krab',
+    author: dummyUsers[0], // relational
+    content: 'Anoying neighbors outside',
+    image: 'https://i.imgflip.com/145qvv.jpg?a481344',
     timestamp: '4h',
     likes: 16,
     replies: 1,

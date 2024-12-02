@@ -18,14 +18,14 @@ const Follows = () => {
       </TabList>
 
       <TabPanels>
-        <TabPanel p={0}>
+        <TabPanel p={4}>
           <VStack spacing={0} align="stretch">
             {dummyUsers.map((user) => (
               <UserCard key={user.id} user={user} />
             ))}
           </VStack>
         </TabPanel>
-        <TabPanel p={0}>
+        <TabPanel p={4}>
           <VStack spacing={0} align="stretch">
             {dummyUsers.map((user) => (
               <UserCard key={user.id} user={user} />
