@@ -51,7 +51,7 @@ export const dummyPosts: Post[] = [
     id: '1',
     userId: '1',
     author: dummyUsers[0], // relational
-    content: 'Anoying neighbors outside',
+    content: 'Annoying neighbors outside',
     image: 'https://i.imgflip.com/145qvv.jpg?a481344',
     timestamp: '4h',
     likes: 16,
