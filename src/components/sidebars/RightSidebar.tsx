@@ -13,7 +13,7 @@ const RightSidebar = () => {
   const isProfilePage = location.pathname === '/profile';
 
   return (
-    <Box w="320px" p={4} position="sticky" top={0} h="100vh">
+    <Box w="400px" p={4} position="sticky" top={0} h="100vh">
       <VStack spacing={6} align="stretch">
         {/* Profile Card - Only show if not on profile page */}
         {!isProfilePage && (

@@ -22,7 +22,7 @@ const LeftSidebar = () => {
   };
 
   return (
-    <Box w="240px" p={4} position="sticky" top={0} h="100vh">
+    <Box w="300px" p={4} position="sticky" top={0} h="100vh">
       <VStack spacing={8} align="stretch" h="full">
         <Text fontSize="3xl" fontWeight="bold" color="green.400">
           circle
